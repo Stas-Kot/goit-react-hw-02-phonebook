@@ -1,6 +1,6 @@
 import ContactListItem from 'components/ContactListItem/ContactListItem';
 
-export default function ContactList({ contacts, heandleDelete }) {
+export default function ContactList({ contacts, handleDelete }) {
   return (
     <ul>
       {contacts.map(({ id, name, number }) => (
@@ -8,7 +8,7 @@ export default function ContactList({ contacts, heandleDelete }) {
           key={id}
           name={name}
           number={number}
-          deleteContact={() => heandleDelete(id)}
+          deleteContact={() => handleDelete(id)}
         />
       ))}
     </ul>

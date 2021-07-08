@@ -7,12 +7,12 @@ class PhonebookForm extends Component {
     number: '',
   };
 
-  heandleSetUserInfo = e => {
+  handleSetUserInfo = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  heandleAddContact = e => {
+  handleAddContact = e => {
     e.preventDefault();
     this.props.heandleSubmit(this.state);
 
@@ -26,11 +26,11 @@ class PhonebookForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <Form autocomplete="off" onSubmit={this.heandleAddContact}>
+      <Form autocomplete="off" onSubmit={this.handleAddContact}>
         <label>
           <p>Name</p>
           <Input
-            onChange={this.heandleSetUserInfo}
+            onChange={this.handleSetUserInfo}
             value={name}
             type="text"
             name="name"
@@ -43,7 +43,7 @@ class PhonebookForm extends Component {
         <label>
           <p>Number</p>
           <Input
-            onChange={this.heandleSetUserInfo}
+            onChange={this.handleSetUserInfo}
             value={number}
             type="tel"
             name="number"
