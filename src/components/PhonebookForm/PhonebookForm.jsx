@@ -14,7 +14,7 @@ class PhonebookForm extends Component {
 
   handleAddContact = e => {
     e.preventDefault();
-    this.props.heandleSubmit(this.state);
+    this.props.handleSubmit(this.state);
 
     this.reset();
   };

@@ -15,7 +15,7 @@ class App extends Component {
     filter: '',
   };
 
-  formSubmitHeandler = ({ name, number }) => {
+  formSubmitHandler = ({ name, number }) => {
     const contact = {
       name,
       number,
@@ -28,11 +28,11 @@ class App extends Component {
         }));
   };
 
-  heandleSearch = e => {
+  handleSearch = e => {
     this.setState({ filter: e.target.value });
   };
 
-  heandleDelete = contactId => {
+  handleDelete = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
@@ -40,7 +40,7 @@ class App extends Component {
 
   getFiltredContacts = () => {
     const { contacts, filter } = this.state;
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filter.toLowerCase().trim();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter),
     );
@@ -53,13 +53,13 @@ class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <PhonebookForm heandleSubmit={this.formSubmitHeandler} />
+        <PhonebookForm handleSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
-        <SearchContact value={filter} inputChange={this.heandleSearch} />
+        <SearchContact value={filter} inputChange={this.handleSearch} />
         <ContactList
           contacts={filtredContacts}
-          heandleDelete={this.heandleDelete}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
